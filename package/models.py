@@ -20,6 +20,18 @@ class Player:
         ]
         self.items = items if items else []
 
+    @classmethod
+    def from_dict(cls, data):
+        return cls(**data)
+
+
+    """
+    인스턴스 메소드 => 우리가 기본적으로 알고 있는 메소드
+    스태틱 메소드 => 클래스 내에 유틸성 메소드, 즉 인스턴스나 클래스의 속성에 접근할 수 없음
+    클래스 메소드 => 인스턴스를 생성하지 않고 클래스에 직접적으로 접근함
+    첫번째 인자로 해당 클래스(기본값) 두번째 인자 데이터로 넣어서 딕셔너리 언패킹
+    """
+
 
 # 몬스터 클래스
 class Monster:
