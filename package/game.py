@@ -85,6 +85,8 @@ def battle(player, monster):
         if player.hp <= 0:
             print("패배했습니다. 게임 오버!")
             player.player_dead()
+            player.hp = player.max_hp
+            player.mp = player.max_mp
             break
 
 
