@@ -1,0 +1,80 @@
+{
+    "nickname": "python",
+    "level": 3,
+    "gold": 618,
+    "attack": 60,
+    "exp": 186,
+    "max_exp": 225,
+    "hp": 150,
+    "max_hp": 150,
+    "mp": 130,
+    "max_mp": 130,
+    "cri_luk": 30,
+    "skills": [
+        {
+            "name": "달팽이 세마리",
+            "mp_cost": 10,
+            "damage_multiple": 1.2
+        },
+        {
+            "name": "달팽이 네마리",
+            "mp_cost": 18,
+            "damage_multiple": 1.5
+        },
+        {
+            "name": "달팽이 다섯마리",
+            "mp_cost": 23,
+            "damage_multiple": 1.8
+        }
+    ],
+    "items": [
+        {
+            "name": "삼위일체",
+            "attack": 20,
+            "hp": 30,
+            "mp": 30,
+            "cri_luk": 20,
+            "price": 333
+        },
+        {
+            "name": "롱소드",
+            "attack": 10,
+            "hp": 0,
+            "mp": 0,
+            "cri_luk": 0,
+            "price": 80
+        },
+        {
+            "name": "민첩성의 망토",
+            "attack": 0,
+            "hp": 0,
+            "mp": 0,
+            "cri_luk": 10,
+            "price": 60
+        },
+        {
+            "name": "여신의 눈물",
+            "attack": 0,
+            "hp": 0,
+            "mp": 30,
+            "cri_luk": 0,
+            "price": 50
+        },
+        {
+            "name": "도란의 검",
+            "attack": 5,
+            "hp": 0,
+            "mp": 0,
+            "cri_luk": 0,
+            "price": 50
+        },
+        {
+            "name": "도란의 검",
+            "attack": 5,
+            "hp": 0,
+            "mp": 0,
+            "cri_luk": 0,
+            "price": 50
+        }
+    ]
+}

@@ -20,9 +20,46 @@ class Player:
         ]
         self.items = items if items else []
 
+
+    def to_dict(self):
+        return self.__dict__ # 클래스(인스턴스)의 내부 상태로 딕셔너리로 변환
+
+
     @classmethod
     def from_dict(cls, data):
-        return cls(**data)
+        return cls(**data) # 언패킹 => 딕셔너리를 키값을 하나하나 빼내서 키값을 넣어주는 것, 'cls(**data)'가 하나의 객체가 되는 것
+
+    def apply_item(self, item):
+        self.attack += item["attack"]
+        self.max_hp += item["hp"]
+        self.max_mp += item["mp"]
+        self.cri_luk += item["cri_luk"]
+        print(f"<{item["name"]}> \n공격력 +{item["attack"]} => {self.attack}\n최대 HP +{item["hp"]} => {self.max_hp}\n최대 MP +{item["mp"]} => {self.max_mp}\n추가 치명타 확률 +{item["cri_luk"]}% => {self.cri_luk}%")
+        print(f"남은 골드:{self.gold}")
+
+    def gain_exp(self, amount):
+        self.exp += amount
+        if self.exp >= self.max_exp:
+            left_amount = amount - self.max_exp
+            self.level_up(left_amount)
+
+    def level_up(self, amount):
+        self.level += 1
+        self.attack += 5
+        self.max_hp += 10
+        self.max_mp += 10
+        self.hp = self.max_hp
+        self.mp = self.max_mp
+        self.exp += amount
+        self.max_exp = int(self.max_exp * 1.5)
+        print(f"레벨 업! {self.level} 레벨이 되었습니다! 공격력 + 5, 최대 HP + 10, 최대 MP + 10")
+
+    def mp_recovery(self, mp):
+        self.mp = min(self.max_mp, self.mp + mp) # min은 두 인자 중에서 가장 작은 인자를 사용한다.
+        print(f"현재 MP:{self.mp}")
+
+    def player_dead(self):
+        self.items = []
 
 
     """
@@ -35,9 +72,10 @@ class Player:
 
 # 몬스터 클래스
 class Monster:
-    def __init__(self, name, hp, attack, exp_reward, gold_reward):
+    def __init__(self, name, max_hp, attack, exp_reward, gold_reward):
         self.name = name
-        self.hp = hp
+        self.max_hp = max_hp
+        self.hp = max_hp
         self.attack = attack
         self.exp_reward = exp_reward
         self.gold_reward = gold_reward
